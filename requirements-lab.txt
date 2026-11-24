@@ -3,5 +3,5 @@ fastapi>=0.110,<1
 uvicorn>=0.27,<1
 pytest>=8,<9
 httpx>=0.27,<1
-requests>=2.31,<3
+requests>=2.34.2,<3
 # Optional native training data export: pip install pyarrow>=15
