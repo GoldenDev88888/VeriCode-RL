@@ -1,0 +1,4 @@
+Assertion passed: 256 is divisible by 256.
+GPUs=8 total_samples=256 global_batch=256 train=data/code-r1-12k/train.parquet validation=data/code-r1-12k/test.parquet
+Assertion passed: 128 is divisible by 128.
+GPUs=8 total_samples=128 global_batch=128 train=data/code-r1-12k/train.parquet validation=data/code-r1-12k/test.parquet

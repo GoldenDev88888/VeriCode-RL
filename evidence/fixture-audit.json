@@ -1,0 +1,145 @@
+{
+  "mode": "fixture-not-real",
+  "tasks": [
+    {
+      "task_id": "T01",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T02",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T03",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T04",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T05",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T06",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T07",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T08",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T09",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "T10",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "V01",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "V02",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "V03",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "V04",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "E01",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "E02",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "E03",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "E04",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "E05",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    },
+    {
+      "task_id": "E06",
+      "reference_status": "pass",
+      "mutants_killed": 1,
+      "mutants_total": 1,
+      "valid": true
+    }
+  ]
+}

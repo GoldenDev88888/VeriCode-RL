@@ -1,0 +1,41 @@
+{
+  "run_id": "7fc0e0b20ebb4d159b46f26631a5c1b1",
+  "summary": {
+    "fixture-reference": {
+      "pass_at_k": 1.0,
+      "k": 1,
+      "tasks": 6,
+      "ci95": [
+        1.0,
+        1.0
+      ],
+      "mean_latency_ms": 0.009277777777777777,
+      "infra_errors": 0,
+      "excluded_tasks": 0,
+      "categories": {
+        "arrays": 1.0,
+        "strings": 1.0,
+        "records": 1.0,
+        "numbers": 1.0
+      }
+    },
+    "fixture-mixed": {
+      "pass_at_k": 0.6666666666666666,
+      "k": 1,
+      "tasks": 6,
+      "ci95": [
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "mean_latency_ms": 0.008833333333333334,
+      "infra_errors": 0,
+      "excluded_tasks": 0,
+      "categories": {
+        "arrays": 0.6666666666666667,
+        "strings": 0.6666666666666667,
+        "records": 0.6666666666666667,
+        "numbers": 0.6666666666666667
+      }
+    }
+  }
+}

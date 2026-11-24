@@ -1,0 +1,903 @@
+[
+  {
+    "id": "T01",
+    "category": "arrays",
+    "split": "train",
+    "prompt": "Implement Python function unique(xs). Remove duplicates while preserving first occurrence order. Integers only. Return the result, not printed output.",
+    "entrypoint": "unique",
+    "reference": "def unique(xs):\n    return list(dict.fromkeys(xs))",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            2,
+            1,
+            2,
+            3
+          ]
+        ],
+        "expected": [
+          2,
+          1,
+          3
+        ]
+      },
+      {
+        "args": [
+          [
+            4,
+            4
+          ]
+        ],
+        "expected": [
+          4
+        ]
+      }
+    ],
+    "mutants": [
+      "def unique(xs):\n    return sorted(set(xs))"
+    ]
+  },
+  {
+    "id": "T02",
+    "category": "strings",
+    "split": "train",
+    "prompt": "Implement Python function normalize(s). Strip outer whitespace and collapse internal whitespace into single spaces. Return the result, not printed output.",
+    "entrypoint": "normalize",
+    "reference": "def normalize(s):\n    return \" \".join(s.split())",
+    "cases": [
+      {
+        "args": [
+          "  a   b  "
+        ],
+        "expected": "a b"
+      },
+      {
+        "args": [
+          "\t\n"
+        ],
+        "expected": ""
+      },
+      {
+        "args": [
+          "x\ny\tz"
+        ],
+        "expected": "x y z"
+      }
+    ],
+    "mutants": [
+      "def normalize(s):\n    return s.strip()"
+    ]
+  },
+  {
+    "id": "T03",
+    "category": "numbers",
+    "split": "train",
+    "prompt": "Implement Python function clamp(x,lo,hi). Clamp integer x to inclusive bounds; lo <= hi. Return the result, not printed output.",
+    "entrypoint": "clamp",
+    "reference": "def clamp(x,lo,hi):\n    return min(hi,max(lo,x))",
+    "cases": [
+      {
+        "args": [
+          -4,
+          0,
+          5
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          9,
+          0,
+          5
+        ],
+        "expected": 5
+      },
+      {
+        "args": [
+          3,
+          0,
+          5
+        ],
+        "expected": 3
+      }
+    ],
+    "mutants": [
+      "def clamp(x,lo,hi):\n    return max(lo,x)"
+    ]
+  },
+  {
+    "id": "T04",
+    "category": "arrays",
+    "split": "train",
+    "prompt": "Implement Python function rotate(xs,k). Rotate list right by k, including negative k; empty list stays empty. Return the result, not printed output.",
+    "entrypoint": "rotate",
+    "reference": "def rotate(xs,k):\n    if not xs: return []\n    k %= len(xs)\n    return xs[-k:]+xs[:-k] if k else xs",
+    "cases": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3
+          ],
+          1
+        ],
+        "expected": [
+          3,
+          1,
+          2
+        ]
+      },
+      {
+        "args": [
+          [],
+          3
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3
+          ],
+          -1
+        ],
+        "expected": [
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "args": [
+          [
+            1,
+            2
+          ],
+          4
+        ],
+        "expected": [
+          1,
+          2
+        ]
+      }
+    ],
+    "mutants": [
+      "def rotate(xs,k):\n    return xs[k:]+xs[:k]"
+    ]
+  },
+  {
+    "id": "T05",
+    "category": "strings",
+    "split": "train",
+    "prompt": "Implement Python function counts(s). Count each character in a string, case sensitive, returning a dictionary. Return the result, not printed output.",
+    "entrypoint": "counts",
+    "reference": "def counts(s):\n    out={}\n    for c in s: out[c]=out.get(c,0)+1\n    return out",
+    "cases": [
+      {
+        "args": [
+          "aba"
+        ],
+        "expected": {
+          "a": 2,
+          "b": 1
+        }
+      },
+      {
+        "args": [
+          ""
+        ],
+        "expected": {}
+      },
+      {
+        "args": [
+          "Aa"
+        ],
+        "expected": {
+          "A": 1,
+          "a": 1
+        }
+      }
+    ],
+    "mutants": [
+      "def counts(s):\n    return {c:1 for c in s}"
+    ]
+  },
+  {
+    "id": "T06",
+    "category": "numbers",
+    "split": "train",
+    "prompt": "Implement Python function gcd(a,b). Return nonnegative greatest common divisor of integers; gcd(0,0)=0. Return the result, not printed output.",
+    "entrypoint": "gcd",
+    "reference": "def gcd(a,b):\n    a,b=abs(a),abs(b)\n    while b: a,b=b,a%b\n    return a",
+    "cases": [
+      {
+        "args": [
+          12,
+          18
+        ],
+        "expected": 6
+      },
+      {
+        "args": [
+          -9,
+          6
+        ],
+        "expected": 3
+      },
+      {
+        "args": [
+          0,
+          0
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          0,
+          7
+        ],
+        "expected": 7
+      }
+    ],
+    "mutants": [
+      "def gcd(a,b):\n    return min(a,b)"
+    ]
+  },
+  {
+    "id": "T07",
+    "category": "arrays",
+    "split": "train",
+    "prompt": "Implement Python function chunks(xs,n). Split list into consecutive lists of length n, final chunk may be shorter; n positive. Return the result, not printed output.",
+    "entrypoint": "chunks",
+    "reference": "def chunks(xs,n):\n    return [xs[i:i+n] for i in range(0,len(xs),n)]",
+    "cases": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        "expected": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      },
+      {
+        "args": [
+          [],
+          2
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            1
+          ],
+          5
+        ],
+        "expected": [
+          [
+            1
+          ]
+        ]
+      }
+    ],
+    "mutants": [
+      "def chunks(xs,n):\n    return [xs[i:i+n] for i in range(0,len(xs)-n+1,n)]"
+    ]
+  },
+  {
+    "id": "T08",
+    "category": "strings",
+    "split": "train",
+    "prompt": "Implement Python function palindrome(s). Return whether string is a palindrome ignoring case and non-alphanumeric characters. Return the result, not printed output.",
+    "entrypoint": "palindrome",
+    "reference": "def palindrome(s):\n    t=\"\".join(c.lower() for c in s if c.isalnum())\n    return t==t[::-1]",
+    "cases": [
+      {
+        "args": [
+          "A man, a plan, a canal: Panama!"
+        ],
+        "expected": true
+      },
+      {
+        "args": [
+          "abc"
+        ],
+        "expected": false
+      },
+      {
+        "args": [
+          "!!"
+        ],
+        "expected": true
+      }
+    ],
+    "mutants": [
+      "def palindrome(s):\n    return s==s[::-1]"
+    ]
+  },
+  {
+    "id": "T09",
+    "category": "records",
+    "split": "train",
+    "prompt": "Implement Python function totals(rows). Aggregate integer amount by category from dictionaries containing category and amount. Return the result, not printed output.",
+    "entrypoint": "totals",
+    "reference": "def totals(rows):\n    out={}\n    for r in rows: out[r[\"category\"]]=out.get(r[\"category\"],0)+r[\"amount\"]\n    return out",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": {}
+      },
+      {
+        "args": [
+          [
+            {
+              "category": "a",
+              "amount": 2
+            },
+            {
+              "category": "a",
+              "amount": -1
+            }
+          ]
+        ],
+        "expected": {
+          "a": 1
+        }
+      },
+      {
+        "args": [
+          [
+            {
+              "category": "b",
+              "amount": 0
+            }
+          ]
+        ],
+        "expected": {
+          "b": 0
+        }
+      }
+    ],
+    "mutants": [
+      "def totals(rows):\n    return {r[\"category\"]:r[\"amount\"] for r in rows}"
+    ]
+  },
+  {
+    "id": "T10",
+    "category": "numbers",
+    "split": "train",
+    "prompt": "Implement Python function is_prime(n). Return whether integer n is prime. Return the result, not printed output.",
+    "entrypoint": "is_prime",
+    "reference": "def is_prime(n):\n    if n<2: return False\n    i=2\n    while i*i<=n:\n        if n%i==0: return False\n        i+=1\n    return True",
+    "cases": [
+      {
+        "args": [
+          1
+        ],
+        "expected": false
+      },
+      {
+        "args": [
+          2
+        ],
+        "expected": true
+      },
+      {
+        "args": [
+          49
+        ],
+        "expected": false
+      },
+      {
+        "args": [
+          97
+        ],
+        "expected": true
+      }
+    ],
+    "mutants": [
+      "def is_prime(n):\n    return n%2==1"
+    ]
+  },
+  {
+    "id": "V01",
+    "category": "arrays",
+    "split": "validation",
+    "prompt": "Implement Python function prefix_sum(xs). Return cumulative sums of integer list, without leading zero. Return the result, not printed output.",
+    "entrypoint": "prefix_sum",
+    "reference": "def prefix_sum(xs):\n    out=[]\n    s=0\n    for x in xs:\n        s+=x\n        out.append(s)\n    return out",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            2,
+            -1,
+            4
+          ]
+        ],
+        "expected": [
+          2,
+          1,
+          5
+        ]
+      },
+      {
+        "args": [
+          [
+            0
+          ]
+        ],
+        "expected": [
+          0
+        ]
+      }
+    ],
+    "mutants": [
+      "def prefix_sum(xs):\n    return [sum(xs)]"
+    ]
+  },
+  {
+    "id": "V02",
+    "category": "strings",
+    "split": "validation",
+    "prompt": "Implement Python function common_prefix(xs). Return longest common prefix of a list of strings; empty list returns empty string. Return the result, not printed output.",
+    "entrypoint": "common_prefix",
+    "reference": "def common_prefix(xs):\n    if not xs: return \"\"\n    p=xs[0]\n    for s in xs[1:]:\n        while not s.startswith(p): p=p[:-1]\n    return p",
+    "cases": [
+      {
+        "args": [
+          [
+            "flower",
+            "flow",
+            "flight"
+          ]
+        ],
+        "expected": "fl"
+      },
+      {
+        "args": [
+          []
+        ],
+        "expected": ""
+      },
+      {
+        "args": [
+          [
+            "a",
+            "b"
+          ]
+        ],
+        "expected": ""
+      }
+    ],
+    "mutants": [
+      "def common_prefix(xs):\n    return xs[0] if xs else \"\""
+    ]
+  },
+  {
+    "id": "V03",
+    "category": "records",
+    "split": "validation",
+    "prompt": "Implement Python function latest(rows). Return map of id to highest integer timestamp, independent of input order. Return the result, not printed output.",
+    "entrypoint": "latest",
+    "reference": "def latest(rows):\n    out={}\n    for r in rows:\n        k,t=r[\"id\"],r[\"time\"]\n        out[k]=max(out.get(k,t),t)\n    return out",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": {}
+      },
+      {
+        "args": [
+          [
+            {
+              "id": "a",
+              "time": 5
+            },
+            {
+              "id": "a",
+              "time": 1
+            }
+          ]
+        ],
+        "expected": {
+          "a": 5
+        }
+      },
+      {
+        "args": [
+          [
+            {
+              "id": "b",
+              "time": -2
+            }
+          ]
+        ],
+        "expected": {
+          "b": -2
+        }
+      }
+    ],
+    "mutants": [
+      "def latest(rows):\n    return {r[\"id\"]:r[\"time\"] for r in rows}"
+    ]
+  },
+  {
+    "id": "V04",
+    "category": "numbers",
+    "split": "validation",
+    "prompt": "Implement Python function digits(n). Return sum of decimal digits of absolute integer n. Return the result, not printed output.",
+    "entrypoint": "digits",
+    "reference": "def digits(n):\n    return sum(map(int,str(abs(n))))",
+    "cases": [
+      {
+        "args": [
+          -123
+        ],
+        "expected": 6
+      },
+      {
+        "args": [
+          0
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          999
+        ],
+        "expected": 27
+      }
+    ],
+    "mutants": [
+      "def digits(n):\n    return n%10"
+    ]
+  },
+  {
+    "id": "E01",
+    "category": "arrays",
+    "split": "test",
+    "prompt": "Implement Python function merge_intervals(xs). Merge overlapping or touching closed integer intervals; return sorted list of pairs. Return the result, not printed output.",
+    "entrypoint": "merge_intervals",
+    "reference": "def merge_intervals(xs):\n    out=[]\n    for a,b in sorted(xs):\n        if out and a<=out[-1][1]: out[-1][1]=max(out[-1][1],b)\n        else: out.append([a,b])\n    return out",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            [
+              3,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              8,
+              9
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            9
+          ]
+        ]
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            9
+          ]
+        ]
+      }
+    ],
+    "mutants": [
+      "def merge_intervals(xs):\n    return sorted(xs)"
+    ]
+  },
+  {
+    "id": "E02",
+    "category": "strings",
+    "split": "test",
+    "prompt": "Implement Python function balanced(s). Check balanced (), [] and {} brackets; ignore other characters. Return the result, not printed output.",
+    "entrypoint": "balanced",
+    "reference": "def balanced(s):\n    stack=[]\n    pairs={\")\":\"(\",\"]\":\"[\",\"}\":\"{\"}\n    for c in s:\n        if c in \"([{\": stack.append(c)\n        elif c in pairs:\n            if not stack or stack.pop()!=pairs[c]: return False\n    return not stack",
+    "cases": [
+      {
+        "args": [
+          "([{}])"
+        ],
+        "expected": true
+      },
+      {
+        "args": [
+          "([)]"
+        ],
+        "expected": false
+      },
+      {
+        "args": [
+          "abc"
+        ],
+        "expected": true
+      },
+      {
+        "args": [
+          ")("
+        ],
+        "expected": false
+      }
+    ],
+    "mutants": [
+      "def balanced(s):\n    return s.count(\"(\")==s.count(\")\")"
+    ]
+  },
+  {
+    "id": "E03",
+    "category": "records",
+    "split": "test",
+    "prompt": "Implement Python function inventory(rows). Sum integer quantity by SKU; omit SKUs with final quantity zero. Return the result, not printed output.",
+    "entrypoint": "inventory",
+    "reference": "def inventory(rows):\n    out={}\n    for r in rows: out[r[\"sku\"]]=out.get(r[\"sku\"],0)+r[\"qty\"]\n    return {k:v for k,v in out.items() if v!=0}",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": {}
+      },
+      {
+        "args": [
+          [
+            {
+              "sku": "x",
+              "qty": 2
+            },
+            {
+              "sku": "x",
+              "qty": -2
+            },
+            {
+              "sku": "y",
+              "qty": 1
+            }
+          ]
+        ],
+        "expected": {
+          "y": 1
+        }
+      },
+      {
+        "args": [
+          [
+            {
+              "sku": "x",
+              "qty": -1
+            }
+          ]
+        ],
+        "expected": {
+          "x": -1
+        }
+      }
+    ],
+    "mutants": [
+      "def inventory(rows):\n    return {r[\"sku\"]:r[\"qty\"] for r in rows}"
+    ]
+  },
+  {
+    "id": "E04",
+    "category": "numbers",
+    "split": "test",
+    "prompt": "Implement Python function binary_search(xs,target). Given sorted integers, return first index of target or -1 if absent. Return the result, not printed output.",
+    "entrypoint": "binary_search",
+    "reference": "def binary_search(xs,target):\n    import bisect\n    i=bisect.bisect_left(xs,target)\n    return i if i<len(xs) and xs[i]==target else -1",
+    "cases": [
+      {
+        "args": [
+          [
+            1,
+            2,
+            2,
+            3
+          ],
+          2
+        ],
+        "expected": 1
+      },
+      {
+        "args": [
+          [],
+          1
+        ],
+        "expected": -1
+      },
+      {
+        "args": [
+          [
+            1,
+            3
+          ],
+          2
+        ],
+        "expected": -1
+      },
+      {
+        "args": [
+          [
+            0
+          ],
+          0
+        ],
+        "expected": 0
+      }
+    ],
+    "mutants": [
+      "def binary_search(xs,target):\n    return xs.index(target) if target in xs else 0"
+    ]
+  },
+  {
+    "id": "E05",
+    "category": "arrays",
+    "split": "test",
+    "prompt": "Implement Python function window_max(xs,k). Return maximum of each consecutive length-k window; invalid k yields empty list. Return the result, not printed output.",
+    "entrypoint": "window_max",
+    "reference": "def window_max(xs,k):\n    if k<1 or k>len(xs): return []\n    return [max(xs[i:i+k]) for i in range(len(xs)-k+1)]",
+    "cases": [
+      {
+        "args": [
+          [
+            1,
+            3,
+            2,
+            5
+          ],
+          2
+        ],
+        "expected": [
+          3,
+          3,
+          5
+        ]
+      },
+      {
+        "args": [
+          [
+            1
+          ],
+          0
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            1
+          ],
+          2
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            -2,
+            -1
+          ],
+          1
+        ],
+        "expected": [
+          -2,
+          -1
+        ]
+      }
+    ],
+    "mutants": [
+      "def window_max(xs,k):\n    return [max(xs)] if xs else []"
+    ]
+  },
+  {
+    "id": "E06",
+    "category": "strings",
+    "split": "test",
+    "prompt": "Implement Python function rle(s). Run-length encode string as list of [character,count] pairs. Return the result, not printed output.",
+    "entrypoint": "rle",
+    "reference": "def rle(s):\n    out=[]\n    for c in s:\n        if out and out[-1][0]==c: out[-1][1]+=1\n        else: out.append([c,1])\n    return out",
+    "cases": [
+      {
+        "args": [
+          "aaabbba"
+        ],
+        "expected": [
+          [
+            "a",
+            3
+          ],
+          [
+            "b",
+            3
+          ],
+          [
+            "a",
+            1
+          ]
+        ]
+      },
+      {
+        "args": [
+          ""
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          "a"
+        ],
+        "expected": [
+          [
+            "a",
+            1
+          ]
+        ]
+      }
+    ],
+    "mutants": [
+      "def rle(s):\n    return [[c,s.count(c)] for c in sorted(set(s))]"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "schema": "code-r1/verl",
+  "format": "jsonl",
+  "splits": {
+    "train": {
+      "rows": 10,
+      "sha256": "4968d5b67b597f3b766948c4afc6f4953fec9e31f58c215df19b8bf39284cdf9",
+      "file": "train.jsonl"
+    },
+    "validation": {
+      "rows": 4,
+      "sha256": "054e999a402b0d5c4d7111799e60039e865be37cd0e14fc4bf0d260d86dca45c",
+      "file": "validation.jsonl"
+    },
+    "test": {
+      "rows": 6,
+      "sha256": "5d8049bd9cccc03f763c139cb0d0817d914371a12d56daa806a151b383a5533e",
+      "file": "test.jsonl"
+    }
+  }
+}
