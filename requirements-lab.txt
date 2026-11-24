@@ -1,5 +1,5 @@
 # Lightweight Windows/Linux experiment dashboard; no CUDA required.
-fastapi>=0.110,<1
+fastapi>=0.162.5,<1
 uvicorn>=0.27,<1
 pytest>=8,<9
 httpx>=0.27,<1
